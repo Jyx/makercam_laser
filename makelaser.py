@@ -19,6 +19,7 @@ def convert_to_laser(gcode, filename):
             "; laser friendly code using:\n" + 
             ";   https://github.com/Jyx/makercam_laser\n" +
             "; by Joakim Bech\n")
+    laser_file.write("F" + str(FEED_RATE) + "\n")
     for g in gcode:
         # Start by changing feed rate
         g = re.sub(r'F\d*', "F" + str(FEED_RATE), g)
